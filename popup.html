@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html class="no-touch"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf8">
+    <script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="js/handlebars-v1.3.0.js" type="text/javascript"></script>
+</head>
+<body>
+<span onclick="showcountryrank('women','USA');">WO USA</span>
+<span onclick="showcountryrank('{{sex}}','{{country}}');">{{country}}</span>
+
+<div id="countryrank" class="popup">
+    <div id="title"></div>
+    <div id="countrytable"></div>
+</div>
+<div id="hide-layout" class="hide-layout"></div>
+</body>
+
+<script>
+    $(function() {
+        $('#countryrank').hide();
+        $('#hide-layout').css({opacity: 0.3});
+        $(window).resize(function() {
+            alignCenter($('#countryrank'));
+        })
+        $('#hide-layout').click(function() {
+            $('#countryrank').fadeOut(600);
+            $('#hide-layout').fadeOut(300);
+        })
+    })
+    function showcountryrank(sex,country) {
+        $.getJSON("/country/" + sex + '/' + country, function(data) {
+            var source = $("#ctable").html();
+            var template = Handlebars.compile(source);
+            $("#countrytable").html( template(data.data) );
+        });
+        var source   = $("#entry-template").html();
+        var template = Handlebars.compile(source);
+        var context = {title: country};
+        $("#title").html(template(context));
+
+        alignCenter2($('#countryrank'));
+        $('#hide-layout').fadeIn(300);
+	    $('#countryrank').fadeIn(300);
+    }
+    function alignCenter2(elem) {
+        elem.css({
+            left: ($(window).width() - elem.width()) / 2 + 'px',
+            top: ($(window).height() - elem.height()) / 3 + 'px'
+        })
+    }
+</script>
+
+<script id="entry-template" type="text/x-handlebars-template">
+    <div class="entry">
+        <h3>{{title}}</h3>
+    </div>
+</script>
+
+<script type='text/template' id='ctable' >
+    <table align="center">
+        <thead>
+        <tr>
+            <th>olpos</th>
+            <th>name</th>
+            <th>worldpos</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each .}}
+        <tr>
+            <td align="center" font="bold">{{olympicpos}}</td>
+            <td align="center">{{name}}</td>
+            <td align="center">{{worldpos}}</td>
+        </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</script>
+
+
+<style>
+    .hide-layout {
+        background: #000;
+        bottom: 0;
+        display: none;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 998;
+    }
+    .popup {
+        background: #FFF;
+        border: 5px solid rgba(197, 192, 192, .7);
+        border-radius: 10px;
+        position: absolute;
+        z-index: 999;
+    }
+    </style>
+</html>

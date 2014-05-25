@@ -1,0 +1,205 @@
+/* --------------- RESET.CSS --------------- */
+
+html, body, div, span, h1, h2, p, label, header, hgroup {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: baseline;
+    background: transparent;
+    font-size: 100%;
+}
+a {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+button {
+    margin: 0;
+    font-size: 100%;
+}
+header, hgroup {
+    display: block;
+}
+html {
+    overflow-y: scroll;
+}
+html, body {
+    height: 100%;
+}
+body {
+    line-height: 1;
+    background: url(../images/bg-body.png);
+    color: #555;
+    text-align: left;
+    font: 13px 'Lucina Sans Unicode', Arial, sans-serif;
+}
+button {
+    cursor: pointer;
+    font-family: 'Lucina Sans Unicode', "Helvetica CY", "Nimbus Sans L", sans-serif;
+}
+button::-moz-focus-inner {
+    border: none;
+}
+a, a:visited {
+    color: #287fc3;
+    text-decoration: underline;
+}
+a:hover {
+    color: #287fc3;
+    text-decoration: none;
+}
+a:focus, a:active {
+    color: #287fc3;
+    text-decoration: underline;
+}
+ul {
+    list-style: none;
+}
+
+/* --------------- /RESET.CSS --------------- */
+
+/* --------------- GENERAL --------------- */
+
+h1, h2 {
+    color: #304E62;
+    font-family: 'Trebuchet MS';
+}
+h1 {
+    font-size: 28px;
+}
+h2 {
+    font-size: 21px;
+}
+hgroup {
+    text-align: center;
+}
+body:before {
+    content: "";
+    left: 0;
+    height: 10px;
+    position: fixed;
+    top: -10px;
+    width: 100%;
+    z-index: 100;
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, .8);
+    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, .8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .8);
+}
+.wrapper {
+    margin: 0 auto;
+    min-height: 100%;
+    width: 1000px;
+}
+.open-popup {
+    border-bottom: 2px dotted #555;
+    cursor: pointer;
+    font-size: 18px;
+    left: 50%;
+    margin: -11px 0 0 -216px;
+    position: absolute;
+    top: 50%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+.open-popup:hover {
+    border-bottom: 2px dotted #666;
+    color: #666;
+}
+.popup {
+    background: url(../images/bg-popup.png) -5px -5px;
+    border: 5px solid rgba(197, 192, 192, .7);
+    border-radius: 10px;
+    height: 198px;
+    position: absolute;
+    width: 345px;
+    z-index: 999;
+}
+.popup-content {
+    border-radius: 6px;
+    line-height: 1.6;
+    padding: 14px 18px 0 17px;
+}
+.popup-title {
+    background: url(../images/bg-popup-title.png) repeat-x;
+    border-radius: 6px 6px 0 0;
+    font-family: 'HelveticaNeue', sans-serif;
+    font-size: 17px;
+    height: 43px;
+    line-height: 43px;
+    padding: 0 0 0 16px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
+    box-shadow: inset 0 1px 1px #e6edef;
+}
+.popup-choice {
+    margin: 34px 0 0;
+    text-align: center;
+}
+.btn-yes,
+.btn-no {
+    border: none;
+    font-family: 'HelveticaNeue', sans-serif;
+    font-size: 12px;
+    height: 35px;
+    line-height: 35px;
+    position: relative;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .4);
+    width: 99px;
+}
+.btn-yes:active,
+.btn-no:active {
+    top: 1px;
+}
+.btn-yes {
+    background: url(../images/bg-btn-yes.png) no-repeat;
+    color: #2a4006;
+    margin: 0 6px 0 0;
+}
+.btn-no {
+    background: url(../images/bg-btn-no.png) no-repeat;
+    color: #582121;
+}
+.btn-close {
+    background: url(../images/btn-close.png) no-repeat;
+    height: 17px;
+    left: 314px;
+    position: absolute;
+    top: 13px;
+    width: 16px;
+}
+.btn-close:hover {
+    cursor: pointer;
+}
+.hide-layout {
+    background: #000;
+    bottom: 0;
+    display: none;
+    height: 100%;
+    opacity: 0.5;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 998;
+}
+
+/* --------------- /GENERAL --------------- */
+
+/* --------------- FONT-FACE --------------- */
+
+@font-face {
+    font-family: 'HelveticaNeue';
+    src: url('fonts/helveticaneue.eot');
+    src: url('fonts/helveticaneue.eot?#iefix') format('embedded-opentype'),
+    url('fonts/helveticaneue.woff') format('woff'),
+    url('fonts/helveticaneue.ttf') format('truetype'),
+    url('fonts/helveticaneue.svg#helveticaneue') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* --------------- /FONT-FACE --------------- */
